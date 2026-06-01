@@ -1,2 +1,4 @@
 python-markdown-math
+pymdown-extensions
 imageio
+mkdocs-video

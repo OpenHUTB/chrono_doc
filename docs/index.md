@@ -1,8 +1,8 @@
 title: 主页
 
-# [OpenHUTB Page 模板](https://github.com/OpenHUTB/template)
+# [多体物理](https://github.com/OpenHUTB/chrono_doc)
 
-欢迎使用 OpenHUTB 的 Github Page 模板文档。
+欢迎使用 OpenHUTB 的多体物理模拟文档。
 
 
 
@@ -17,6 +17,8 @@ title: 主页
 ## 1. 简介 <span id="list"></span>
 
 [__入门__](introduction.md) <span id="introduction"></span>
+
+[__效果__](./effect.md) - 各种运行动图效果
 
 
 ___
