@@ -16,9 +16,14 @@ title: 主页
 
 ## 1. 简介 <span id="list"></span>
 
-[__入门__](introduction.md) <span id="introduction"></span>
+[__入门__](introduction.md) <span id="introduction"></span> - 简介
 
-[__效果__](./effect.md) - 各种运行动图效果
+[__人的模拟__](./humanoid.md) - 胫骨关节效果
+
+[__车的模拟__](./chrono/manual_vehicle.md) - 各种载具的参考手册
+
+[__流体效果__](./effect.md) - 各种运行动图效果
+
 
 
 ___
