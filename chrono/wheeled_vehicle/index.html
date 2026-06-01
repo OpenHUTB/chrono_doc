@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
-      <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>多物理场模拟文档</title>
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/theme_extra.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>轮式车辆 - 多物理场模拟文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="extra.css" rel="stylesheet" />
+        <link href="../../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "\u9996\u9875";
-        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_name = "\u8f6e\u5f0f\u8f66\u8f86";
+        var mkdocs_page_input_path = "chrono/wheeled_vehicle.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -31,25 +31,21 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> 多物理场模拟文档
+          <a href="../.." class="icon icon-home"> 多物理场模拟文档
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="搜索文档" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">首页</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1">1. 简介 </a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">首页</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="effect/">涉水效果</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../effect/">涉水效果</a>
                 </li>
               </ul>
       </div>
@@ -59,16 +55,16 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">多物理场模拟文档</a>
+          <a href="../..">多物理场模拟文档</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">首页</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">轮式车辆</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/OpenHUTB/template/edit/master/docs/index.md" class="icon icon-github"> 在 GitHub 上编辑</a>
+          <a href="https://github.com/OpenHUTB/template/edit/master/docs/chrono/wheeled_vehicle.md" class="icon icon-github"> 在 GitHub 上编辑</a>
     </li>
   </ul>
   <hr/>
@@ -76,28 +72,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="_1"><a href="https://github.com/OpenHUTB/chrono_doc">多体物理</a></h1>
-<p>欢迎使用 OpenHUTB 的多体物理模拟文档。</p>
+                <div><h1 id="_1">轮式车辆</h1>
+<p><code>Chrono::Vehicle</code> 中的轮式车辆是抽象通用车辆系统 ( ChVehicle ) 的一种特殊化，被定义为子系统的集合（如下所示）。</p>
+<p><img alt="" src="../../img/chrono/wheeled_subsystems.png"></p>
+<p>轮式车辆包含底盘子系统、传动系统子系统和任意数量的车轴，按照惯例，车轴从车辆前部开始编号。多转向车辆通过允许任意数量的转向机构（连接到不同的车轴）或允许多个可转向车轴连接到同一转向机构来支持。每个车轴每侧可以容纳一个或两个轮胎。</p>
+<p>参见 <a href="https://api.projectchrono.org/classchrono_1_1vehicle_1_1_ch_wheeled_vehicle.html">ChWheeledVehicle</a> 。</p>
+<p>以下章节描述了各种子系统模板：</p>
 <ul>
-<li><a href="#list">简介</a><ul>
-<li><a href="#introduction">入门</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="1">1. 简介 <span id="list"></span></h2>
-<p><a href="introduction.md"><strong>入门</strong></a> <span id="introduction"></span> - 简介</p>
-<p><a href="./humanoid.md"><strong>人的模拟</strong></a> - 胫骨关节效果</p>
-<p><a href="chrono/manual_vehicle/"><strong>车的模拟</strong></a> - 各种载具的参考手册</p>
-<p><a href="effect/"><strong>流体效果</strong></a> - 各种运行动图效果</p>
-<hr>
-<p>如果对文档中的任何问题可以在 <a href="https://github.com/OpenHUTB/templte">本文档的源码仓库</a> 中的 <a href="https://github.com/OpenHUTB/templte/issues">问题</a> 页面讨论或者提交 <a href="https://github.com/OpenHUTB/.github/blob/master/CONTRIBUTING.md">拉取请求</a> 直接修改文档。</p></div>
+<li><a href="https://api.projectchrono.org/wheeled_suspension.html">悬挂模型</a> </li>
+<li><a href="https://api.projectchrono.org/wheeled_steering.html">转向机构模型</a> </li>
+<li><a href="https://api.projectchrono.org/wheeled_driveline.html">传动系统模型</a></li>
+<li><a href="https://api.projectchrono.org/wheeled_tire.html">轮胎型号</a></li>
+</ul></div>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="effect/" class="btn btn-neutral float-right" title="涉水效果">后一页 <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -124,22 +113,20 @@
     
     
     
-      <span><a href="effect/" style="color: #fcfcfc">后一页 &raquo;</a></span>
-    
   </span>
 </div>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = ".";</script>
-    <script src="js/theme_extra.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
-      <script src="js/umlconvert.js"></script>
-      <script src="search/main.js"></script>
+      <script src="../../js/umlconvert.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
@@ -148,8 +135,3 @@
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.5.8
-Build Date UTC : 2026-06-01 08:58:28.146179+00:00
--->
