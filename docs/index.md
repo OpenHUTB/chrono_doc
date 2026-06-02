@@ -22,7 +22,7 @@ title: 主页
 
 [__车的模拟__](./chrono/manual_vehicle.md) - 各种载具的参考手册
 
-[__流体效果__](./effect.md) - 各种运行动图效果
+[__流体效果__](./chrono.md) - 各种运行动图效果
 
 
 
