@@ -7,3 +7,4 @@
 * [摩擦接触](./frictional_contact.md)
 * [多体物理](./multi_physics.md)
 * [车辆移动性](./vehicle_mobility.md)
+* [颗粒动力学](./granular_dynamics.md)
