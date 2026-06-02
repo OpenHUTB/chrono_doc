@@ -20,7 +20,7 @@ title: 主页
 
 [__人的模拟__](./humanoid.md) - 胫骨关节效果
 
-[__车的模拟__](./chrono/manual_vehicle.md) - 各种载具的参考手册
+[__车的模拟__](./autonomous_vehicles_and_robotics.md) - 载具的运行效果
 
 [__流体效果__](./chrono.md) - 各种运行动图效果
 
