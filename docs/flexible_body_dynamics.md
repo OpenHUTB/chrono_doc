@@ -11,8 +11,12 @@
 * 流体与刚体填充的柔性碗的模拟
 ![type:video](./img/fluid_dynamics/192%20Simulation%20of%20flexible%20bowl%20filled%20with%20fluid%20and%20rigid%20bodies.mp4)
 
+
 * 偏离中心块接触
+
+两个刚性块体通过 Bullet 碰撞检测进行接触。其中一个通过旋转关节与地面连接。
 ![type:video](./img/flexible_body_dynamics/185%20Off%20center%20block%20contact.mp4)
+
 
 * 净弹跳
 ![type:video](./img/flexible_body_dynamics/183%20Net%20Bounce.mp4)
@@ -97,6 +101,8 @@
 
 
 * ANCF非线性有限元分析轮胎在颗粒状地形上的运行情况
+
+内部压力已建模，轮毂未显示。
 ![type:video](./img/flexible_body_dynamics/127%20ANCF%20nonlinear%20FEA%20tire%20operating%20on%20granular%20terrain.mp4)
 
 
@@ -105,10 +111,14 @@
 
 
 * 配备 ANCF 轮胎的 Chrono 悍马模型在颗粒状粘性土壤上行驶
+
+轮胎采用8640个分层正交各向异性非线性壳单元建模。地形由超过60万个球形刚体组成。
 ![type:video](./img/flexible_body_dynamics/122%20Chrono%20humvee%20model%20with%20ANCF%20tires%20traveling%20on%20granular,%20cohesive%20soil.mp4)
 
 
 * 刚体流经柔性梁阵列
+
+流固相互作用，光滑粒子流体动力学，三维刚体动力学，柔性梁，绝对节点坐标公式。
 ![type:video](./img/flexible_body_dynamics/085%20Flow%20of%20rigid%20bodies%20through%20an%20array%20of%20flexible%20beams.mp4)
 
 
@@ -129,6 +139,8 @@
 
 
 * 网捕 2
+
+由 3280 个 ANCF 梁单元组成的网捕住了 720 个刚性粒子。
 ![type:video](./img/flexible_body_dynamics/052%20Net%20Catch%202.mp4)
 
 * 蠕虫

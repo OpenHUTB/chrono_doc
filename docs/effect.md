@@ -3,6 +3,8 @@
 ## 流体动力学
 
 * 涉水模拟约束流体
+
+模拟动态车辆涉水过程。本例中，流体由约140万个SPH标记点近似表示。时间步长：0.001秒；求解器：APGD算法，迭代次数140次（100次双边迭代，40次双边流体迭代）。使用 Chrono Parallel 和 Chrono Vehicle 进行模拟。
 ![type:video](./img/fluid_dynamics/117%20Fording%20Simulation%20Constraint%20Fluids.mp4)
 
 ---
@@ -47,6 +49,8 @@
 
 
 * 溃坝模拟
+
+该模拟显示了溃坝后水面自由表面的演变。使用 Chrono FSI 进行模拟。
 ![type:video](./img/fluid_dynamics/139%20Dam%20Break%20Simulation.mp4)
 
 
@@ -54,7 +58,9 @@
 ![type:video](./img/fluid_dynamics/138%20Fluid%20Solid%20Interaction.mp4)
 
 
-* [柔性鳍状结构模拟](./img/fluid_dynamics/137%20Fin%20Simulation.mp4)
+* [鳍模拟](./img/fluid_dynamics/137%20Fin%20Simulation.mp4)
+
+使用 Chrono FSI 和 Chrono FEA 模拟刚性鳍和柔性鳍的流固耦合。
 ![type:video](./img/fluid_dynamics/137%20Fin%20Simulation.mp4)
 
 
@@ -114,7 +120,9 @@
 ![type:video](./img/fluid_dynamics/085%20Flow%20of%20rigid%20bodies%20through%20an%20array%20of%20flexible%20beams.mp4)
 
 
-* 拉格朗日模拟具有刚性和柔性部件的流固相互作用
+* 拉格朗日模拟具有刚性和柔性部件的流固耦合
+
+流固耦合、光滑粒子流体动力学、三维刚体动力学、柔性梁、绝对节点坐标公式。
 ![type:video](./img/fluid_dynamics/084%20Lagrangian%20Lagrangian%20simulation%20of%20fluid%20solid%20interaction%20with%20rigid%20and%20flexible%20components.mp4)
 
 

@@ -7,6 +7,8 @@
 
 
 * 黏附粒子
+
+4000万个球形粒子在正弦驱动的波浪水槽中运动。使用 Chrono::Granular 进行模拟，Chrono::Granular 是 Project Chrono 开源多物理场引擎中基于 GPU 的颗粒材料模拟模块。
 ![type:video](./img/granular_dynamics/195%20Sticky%20Particles.mp4)
 
 
@@ -19,6 +21,8 @@
 
 
 * 剪切测试球体
+
+直接剪切试验采用半径为 0.4 cm 的颗粒，法向载荷为 16,8881 Pa。模型将接触设定为 DVI（μ = 0.5），时间步长为 1e-3 s，容差为 1e-5。每个颗粒均为球体。
 ![type:video](./img/granular_dynamics/191%20Shear%20test%20%20spheres.mp4)
 
 
@@ -43,6 +47,8 @@
 
 
 * 高扭矩，低拔出力A
+
+使用DVI方法对50000个刚体进行模拟。使用 Chrono::Engine GPU 在 NVIDIA GTX480 上进行模拟。
 ![type:video](./img/granular_dynamics/174%20high%20torque%20low%20pullout%20force%20A.mp4)
 
 
@@ -404,18 +410,26 @@
 
 
 * Chrono--颗粒-连通管
+
+1400 万个无摩擦的球形颗粒在自身重力作用下于两个腔室之间流动，这两个腔室由一个略微抬升的圆柱体隔开。该模拟使用 Chrono::Granular 完成，Chrono::Granular 是 Project Chrono 开源多物理场引擎中基于 GPU 的颗粒材料模拟模块。
 ![type:video](./img/granular_dynamics/Chrono--Granular%20-%20Communicating%20Vessels.mp4)
 
 
 * Chrono--颗粒--溃坝
+
+一列最初被限制在一定范围内的无摩擦颗粒被释放，形成颗粒物质波，该波反弹并撞击远处的墙壁。该模拟使用 Chrono::Granular 完成，Chrono::Granular 是 Project Chrono 开源多物理场引擎中基于 GPU 的颗粒材料模拟模块。
 ![type:video](./img/granular_dynamics/Chrono--Granular%20-%20Dam%20Break.mp4)
 
 
-* Chrono--颗粒-料斗质量流量
+* Chrono--颗粒-料斗中颗粒物料的质量流量
+
+该颗粒物料由单分散球形颗粒组成，在锥形料斗中流动。模拟采用 Chrono::Granular 模块，该模块是基于 GPU 的颗粒物料模拟模块。
 ![type:video](./img/granular_dynamics/Chrono--Granular%20-%20Mass%20Flow%20Rate%20from%20a%20Hopper.mp4)
 
 
 * Chrono--颗粒--波浪水槽
+
+4000 万个球形颗粒在正弦驱动的波浪水槽中运动。该模拟使用 Chrono::Granular 进行，Chrono::Granular 是 Project Chrono 开源多物理场引擎中基于 GPU 的颗粒材料模拟模块。
 ![type:video](./img/granular_dynamics/Chrono--Granular%20-%20Wave%20Tank.mp4)
 
 

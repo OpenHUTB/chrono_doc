@@ -76,6 +76,14 @@
 ![type:video](./img/fluid_dynamics/145%20animation2_1.mp4)
 
 
+* Chrono::车辆 HMMWV 配备非线性 FEA 轮胎，在可变形颗粒状地形上越过障碍物
+
+– 923,000 个粒子（每个粒子 6 个自由度）
+– 4 个轮胎，采用 90×24 双线性连续体 ANCF 壳单元
+
+![type:video](./img/vehicle_mobility/125%20Chrono%20Vehicle%20HMMWV%20with%20nonlinear%20FEA%20tires%20negotiating%20an%20obstacle%20on%20deformable%20granular%20ter.mp4)
+
+
 * 涉水模拟约束流体
 ![type:video](./img/fluid_dynamics/117%20Fording%20Simulation%20Constraint%20Fluids.mp4)
 
