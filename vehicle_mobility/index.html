@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>车辆移动性 - 多物理场文档</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u8f66\u8f86\u79fb\u52a8\u6027";
+        var mkdocs_page_input_path = "vehicle_mobility.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> 多物理场文档
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="搜索文档" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">首页</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../humanoid/">人的模拟</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../chrono/manual_vehicle/">车的模拟</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../effect/">流体效果</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">多物理场文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">车辆移动性</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/OpenHUTB/chrono_doc/edit/master/docs/vehicle_mobility.md" class="icon icon-github"> 在 GitHub 上编辑</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="_1">车辆移动性</h1>
+<ul>
+<li>
+<p>轮胎滚动
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/198%20Tire%20Roll.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>轮胎弹跳
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/197%20Tire%20Bounce.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悬架对比
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/196%20Suspension%20comparison.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>岩石斜坡 2
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/190%20Rocky%20Slope%202.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>岩石斜坡
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/189%20Rocky%20Slope.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>mrap3
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/180%20mrap3.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>mrap3 30
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/179%20mrap3%2030.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悍马
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/176%20Humvee.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>柔性轮胎在可变形地形上行驶
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/167%20Flexible%20tire%20on%20deformable%20terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>刚性无摩擦流体中的动态车辆涉水 1
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/164%20Dynamic%20Vehicle%20Fording%20%20%20Rigid%20Frictionless%20Fluid%201.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>动态 Bekker 理论
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/163%20Dynamic%20Bekker.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>装有非线性有限元轮胎的Chrono Vehicle悍马模型在黏性土壤上行驶
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/154%20Chrono%20Vehicle%20humvee%20model%20with%20nonlinear%20finite%20element%20tires%20traveling%20on%20cohesive%20soil.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>砖墙
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/151%20Brick%20Wall.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>ANCF非线性有限元分析轮胎在颗粒状地形上的运行2
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/142%20ANCF%20nonlinear%20FEA%20tire%20operating%20on%20granular%20terrain%202.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>在颗粒状地形上运行的ANCF非线性有限元分析轮胎1
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/141%20ANCF%20nonlinear%20FEA%20tire%20operating%20on%20granular%20terrain%201.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>ANCF HMMWV轮胎模型在黏性颗粒地形上的运动
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/140%20ANCF%20HMMWV%20tire%20model%20moving%20on%20cohesive%20granular%20terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>M113 动态涉水
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/129%20m113%20fording%20dynamic.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>M113 静态涉水
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/128%20m113%20fording%20static.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>配备非线性有限元分析轮胎的Chrono Vehicle HMMWV在可变形颗粒状地形上越过障碍物
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/145%20animation2_1.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>涉水模拟约束流体
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/117%20Fording%20Simulation%20Constraint%20Fluids.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>涉水模拟无摩擦球体
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/116%20Fording%20Simulation%20Frictionless%20Spheres.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>动态车辆涉水 刚性无摩擦流体
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/113%20Dynamic%20Vehicle%20Fording%20%20%20Rigid%20Frictionless%20Fluid.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>动态车辆涉水约束流体
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/112%20Dynamic%20Vehicle%20Fording%20Constraint%20Fluid.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>HMMWV在颗粒状地形上
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/104%20HMMWV%20on%20granular%20terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>在倾斜的颗粒状地形上行驶的HMMWV，r=0.02
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/102%20HMMWV%20on%20sloped%20granular%20terrain%20r%3D0%2002.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>单轮试验模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/101%20Single%20Wheel%20Test%20simulation.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>颗粒状地形高度上的悍马车
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/100%20HMMWV%20on%20granular%20terrain%20height.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>颗粒地形侧面的HMMWV
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/099%20HMMWV%20on%20granular%20terrain%20side.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>在倾斜的颗粒状地形上行驶的HMMWV（高机动性多用途轮式车辆），r=0.04
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/098%20HMMWV%20on%20sloped%20granular%20terrain%20r%3D0%2004.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>在崎岖不平的颗粒状地形一侧的HMMWV（高机动性多用途轮式车辆）
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/097%20HMMWV%20on%20bumpy%20granular%20terrain%20side.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>崎岖颗粒地形上的悍马车
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/096%20HMMWV%20on%20bumpy%20granular%20terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>在崎岖不平的颗粒状地形上的HMMWV高度
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/095%20HMMWV%20on%20bumpy%20granular%20terrain%20height.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>使用Chrono Vehicle与150万个球体耦合的PBD模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/094%20PBD%20simulation%20with%201%205%20million%20spheres%20coupled%20with%20Chrono%20Vehicle.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>带有100万个SPH标记的悍马涉水车
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/fluid_dynamics/091%20Humvee%20Fording%20with%201%20Million%20SPH%20Markers.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>带有 100 万个刚性球体的悍马涉水车
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/090%20Humvee%20Fording%20with%201%20Million%20Rigid%20Spheres.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悍马泥浆后视图
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/083%20humvee%20mud%20back%20view.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悍马泥地车轮视图
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/082%20humvee%20mud%20wheel%20view.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悍马泥浆前视图
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/081%20humvee%20mud%20front%20view.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>履带式推土机
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/069%20Tracked%20Bulldozer.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>水车
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/068%20Waterwheel.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悍马泥地侧
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/059%20humvee%20mud%20side.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>可变形地形上的刚性轮胎后视图
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/048%20Rigid%20tire%20on%20deformable%20terrrain%20rear%20view.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>M113
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/043%20M113.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>多体坦克模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/032%20Multibody%20Tank%20Simulation.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono--FSI - M113装甲履带车在平坦地形上越障
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20M113%20Armored%20Track%20Vehicle%20Crosses%20Obstacles%20on%20Flat%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono--FSI - 平地行驶的M113装甲履带车
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20M113%20Armored%20Track%20Vehicle%20on%20Flat%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 火星好奇号在平坦颗粒物质地形（含障碍物）上的移动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Mars%20Curiosity%20on%20Flat%20Granular%20Material%20Terrain%20with%20Obstacles.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 火星好奇号在平坦颗粒状物质地形上的移动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Mars%20Curiosity%20on%20Flat%20Granular%20Material%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 火星好奇号在侧倾颗粒物质地形上的移动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Mars%20Curiosity%20on%20Side-Tilted%20Granular%20Material%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 火星好奇号在颗粒物质地形上坡时的运动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Mars%20Curiosity%20on%20Uphill%20Granular%20Material%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 月蛇在平坦颗粒物质地形（含障碍物）上的移动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Moon%20Viper%20on%20Flat%20Granular%20Material%20Terrain%20with%20Obstacles.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 月蛇在平坦颗粒物质地形上的移动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Moon%20Viper%20on%20Flat%20Granular%20Material%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 月蛇在侧倾颗粒物质地形上的移动模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Moon%20Viper%20on%20Side-Tilted%20Granular%20Material%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - 月蛇在颗粒物质地形上的爬坡机动性模拟
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Mobility%20Simulation%20of%20Moon%20Viper%20on%20Uphill%20Granular%20Material%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Chrono-FSI - Polaris越野车在可变形弯曲路径上的导航行驶
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/Chrono--FSI%20-%20Polaris%20Off-Road%20Vehicle%20Navigating%20Through%20a%20Deformable%20Curved%20Path.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>悍马RMS修剪版
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/hmmwv%20rms%20trimmed.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>ISO双车道变换
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/ISO%20double%20lane%20change.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>M113A 阶梯爬升 32英寸
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/m113a%20stepclimb%2032in.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>侧坡角度4mps
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/vehicle_mobility/sideSlopeAngled%204mps.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>SynChrono高速公路车道变换
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/autonomous_vehicles_and_robotics/SynChrono%20Highway%20Lane%20Change.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>可变形地形上的SynChrono强化学习车队
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/autonomous_vehicles_and_robotics/SynChrono%20Reinforcement%20Learning%20Convoy%20on%20Deformable%20Terrain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+</ul></div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>OpenHUTB 版权所有 &copy; 2026</p>
+  </div>
+
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/OpenHUTB/chrono_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      <script src="../js/umlconvert.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>运行效果 - 多物理场文档</title>
+    <title>摩擦接触 - 多物理场文档</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "\u8fd0\u884c\u6548\u679c";
-        var mkdocs_page_input_path = "chrono.md";
+        var mkdocs_page_name = "\u6469\u64e6\u63a5\u89e6";
+        var mkdocs_page_input_path = "frictional_contact.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -49,7 +49,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="manual_vehicle/">车的模拟</a>
+                <li class="toctree-l1"><a class="reference internal" href="../chrono/manual_vehicle/">车的模拟</a>
                 </li>
               </ul>
               <ul>
@@ -70,9 +70,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">运行效果</li>
+      <li class="breadcrumb-item active">摩擦接触</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/OpenHUTB/chrono_doc/edit/master/docs/chrono.md" class="icon icon-github"> 在 GitHub 上编辑</a>
+          <a href="https://github.com/OpenHUTB/chrono_doc/edit/master/docs/frictional_contact.md" class="icon icon-github"> 在 GitHub 上编辑</a>
     </li>
   </ul>
   <hr/>
@@ -80,15 +80,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="_1">运行效果</h1>
+                <div><h1 id="_1">摩擦接触</h1>
 <ul>
-<li><a href="../effect/">流体动力学</a></li>
-<li><a href="../autonomous_vehicles_and_robotics/">自动驾驶和机器人</a></li>
-<li><a href="../flexible_body_dynamics/">柔性体动力学</a></li>
-<li><a href="../frictional_contact/">摩擦接触</a></li>
-<li><a href="../multi_physics/">多体物理</a></li>
-<li><a href="../vehicle_mobility/">车辆移动性</a></li>
-<li><a href="../granular_dynamics/">颗粒动力学</a></li>
+<li>
+<p>雨中漫步
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/199%20Walker%20in%20the%20Rain.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>几何粘附水平振动
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/169%20Geometric%20Adhesion%20Horizontal%20Vibration.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>接触 2e9
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/160%20contact2e9.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>接触 2e7
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/159%20contact2e7.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>电缆碰撞
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/flexible_body_dynamics/157%20Collision%20Cables.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>中心块接触
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/153%20Center%20block%20contact.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>锁子甲式的布料堆叠
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/111%20Chainmail%20Pile.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>几何粘附垂直振动
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/108%20Geometric%20Adhesion%20Vertical%20Vibration.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>锁子甲式的连衣裙
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/093%20Chainmail%20Dress.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>冲倒积木塔
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/040%20Block%20Tower.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>Body Bucky 的坠落
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/031%20Falling%20Body%20Bucky.mp4" type="video/mp4"></source></video></div></p>
+</li>
+<li>
+<p>5000 个物体的落体运动
+<div class="video-container"><video style="position:relative;width:100%;height:22.172vw" loop controls autoplay alt="type:video"><source src="../img/frictional_contact/028%20Falling%20Bodies%20W%205000%20Objects.mp4" type="video/mp4"></source></video></div></p>
+</li>
 </ul></div>
               
             </div>
