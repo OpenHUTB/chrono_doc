@@ -16,7 +16,7 @@ title: 主页
 
 ## 1. 简介 <span id="list"></span>
 
-[__入门__](introduction.md) <span id="introduction"></span> - 简介
+[__入门__](https://openhutb.github.io/doc/pedestrian/tuto_content_chrono_opensim/) <span id="introduction"></span> - 简介、安装和基本使用
 
 [__人的模拟__](./humanoid.md) - 胫骨关节效果
 
