@@ -79,83 +79,87 @@ cmake ../ -DCMAKE_PREFIX_PATH="C:\Packages\eProsima\Fast-DDS-2.14.5\thirdparty\a
 
 ## 问题
 
-* 编译
+* 编译报错
 
-#error: MSVC/cl.exe with traditional preprocessor is used. This may lead to unexpected compilation errors. Please switch to the standard conforming preprocessor by passing `/Zc:preprocessor` to cl.exe. You can define CCCL_IGNORE_MSVC_TRADITIONAL_PREPROCESSOR_WARNING to suppress this warning.
+    报错信息：
+
+    ```text
+    #error: MSVC/cl.exe with traditional preprocessor is used. This may lead to unexpected compilation errors. Please switch to the standard conforming preprocessor by passing `/Zc:preprocessor` to cl.exe. You can define CCCL_IGNORE_MSVC_TRADITIONAL_PREPROCESSOR_WARNING to suppress this warning.
+    ```
 
 * 编译完成后，运行`demo_PARSER_OpenSim`报错
-```text
-由于找不到 `Irrlicht.dll`，无法继续执行代码
-```
-解决：将`C:\Packages\irrlicht-1.8.5\bin\Win64-VisualStudio\Irrlicht.dll`拷贝到`D:\Build\chrono\bin\Release`目录下，再重新运行。
+    ```text
+    由于找不到 `Irrlicht.dll`，无法继续执行代码
+    ```
+    解决：将`C:\Packages\irrlicht-1.8.5\bin\Win64-VisualStudio\Irrlicht.dll`拷贝到`D:\Build\chrono\bin\Release`目录下，再重新运行。
 
 * 编译 Debug 版本报错：
-```text
-无法打开文件“python311_d.lib”
-无法打开文件“..\..\..\lib\Debug\Chrono_parsers_d.lib”
-```
+    ```text
+    无法打开文件“python311_d.lib”
+    无法打开文件“..\..\..\lib\Debug\Chrono_parsers_d.lib”
+    ```
 
-原因：缺少`python311_d.lib`是因为使用的是python发布版，而不是debug版本。
+    原因：缺少`python311_d.lib`是因为使用的是python发布版，而不是debug版本。
 
-缺少`Chrono_parsers_d.lib`是因为需要编译 Chrono_parsers。
+    缺少`Chrono_parsers_d.lib`是因为需要编译 Chrono_parsers。
 
-C++中Debug模式下 #include <Python.h> 会提示链接错误信息 无法打开文件“python311_d.lib”
+    C++中Debug模式下 #include <Python.h> 会提示链接错误信息 无法打开文件“python311_d.lib”
 
-解决：参考[链接](https://www.cnblogs.com/Jeffxu/p/17965842) ，在 [chrono/src/chrono_parsers
-/ChParserPython.cpp包含头文件时](https://github.com/OpenHUTB/chrono/blob/hutb/src/chrono_parsers/ChParserPython.cpp) ，临时去掉 Debug 模式，待后面再恢复之前的模式，操作方式如下：
+    解决：参考[链接](https://www.cnblogs.com/Jeffxu/p/17965842) ，在 [chrono/src/chrono_parsers
+    /ChParserPython.cpp包含头文件时](https://github.com/OpenHUTB/chrono/blob/hutb/src/chrono_parsers/ChParserPython.cpp) ，临时去掉 Debug 模式，待后面再恢复之前的模式，操作方式如下：
 
-```cpp
-#ifdef _DEBUG
-#undef _DEBUG
-#include <Python.h>
-#define _DEBUG
-#else
-#include <Python.h>
-#endif
-```
+    ```cpp
+    #ifdef _DEBUG
+    #undef _DEBUG
+    #include <Python.h>
+    #define _DEBUG
+    #else
+    #include <Python.h>
+    #endif
+    ```
 
 
 
 * 编译错误：
 
-```text
-无法打开包括文件: “cuda_runtime.h”: No such file or directory
-无法打开输入文件“Chrono_modal.lib”
-无法打开输入文件“..\..\..\lib\Release\Chrono_parsers.lib”
-```
+    ```text
+    无法打开包括文件: “cuda_runtime.h”: No such file or directory
+    无法打开输入文件“Chrono_modal.lib”
+    无法打开输入文件“..\..\..\lib\Release\Chrono_parsers.lib”
+    ```
 
 解决：移除需要CUDA的sensor模块的编译。
 
 * 运行`chrono\contrib\build-scripts\windows\buildVSG.bat`出现Vulkan找不到的错误：
 
-```text
-Could NOT find Vulkan: (Required is at least version "1.1.70.0")
-```
+    ```text
+    Could NOT find Vulkan: (Required is at least version "1.1.70.0")
+    ```
 
-解决：[下载 vulkan](https://vulkan.lunarg.com/sdk/home#windows) ；解决不了可以暂时关闭报错的模块
+    解决：[下载 vulkan](https://vulkan.lunarg.com/sdk/home#windows) ；解决不了可以暂时关闭报错的模块
 
 * eigen3找不到，报错：`ERROR: cannot find Eigen3 version information`
 
-解决（需要包含后面的`include/eigen3`）：
-```shell
-set EIGEN3_INSTALL_DIR="C:/Packages/eigen/include/eigen3"
-```
+    解决（需要包含后面的`include/eigen3`）：
+    ```shell
+    set EIGEN3_INSTALL_DIR="C:/Packages/eigen/include/eigen3"
+    ```
 
 * 编译2.4.0时，fastrtps 中的 “ _Mtx_init”:identifier not found
 
 * 构建blaze时候报错
-```text
-Could NOT find BLAS (missing: BLAS_LIBRARIES)
-```
+    ```text
+    Could NOT find BLAS (missing: BLAS_LIBRARIES)
+    ```
 
-```shell
-configure_file(<input> <output>
-               [COPYONLY] [ESCAPE_QUOTES] [@ONLY]
-               [NEWLINE_STYLE [UNIX|DOS|WIN32|LF|CRLF] ])
-```
-将文件复制到另一个位置并修改其内容。
+    ```shell
+    configure_file(<input> <output>
+                [COPYONLY] [ESCAPE_QUOTES] [@ONLY]
+                [NEWLINE_STYLE [UNIX|DOS|WIN32|LF|CRLF] ])
+    ```
+    将文件复制到另一个位置并修改其内容。
 
-当然，这里的修改其内容也不是任意地修改，也是遵循一定的规则：将input文件复制到output文件，并在输入文件内容中的变量，替换引用为@VAR@或${VAR}的变量值。每个变量引用将替换为该变量的当前值，如果未定义该变量，则为空字符串。
+    当然，这里的修改其内容也不是任意地修改，也是遵循一定的规则：将input文件复制到output文件，并在输入文件内容中的变量，替换引用为@VAR@或${VAR}的变量值。每个变量引用将替换为该变量的当前值，如果未定义该变量，则为空字符串。
 
 
 
