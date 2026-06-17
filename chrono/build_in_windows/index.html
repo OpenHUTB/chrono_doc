@@ -151,23 +151,23 @@ cmake<span class="w"> </span>../<span class="w"> </span>-DCMAKE_PREFIX_PATH<span
 </code></pre></div>
 <h2 id="_1">问题</h2>
 <ul>
-<li>编译</li>
-</ul>
-<h1 id="error-msvcclexe-with-traditional-preprocessor-is-used-this-may-lead-to-unexpected-compilation-errors-please-switch-to-the-standard-conforming-preprocessor-by-passing-zcpreprocessor-to-clexe-you-can-define-cccl_ignore_msvc_traditional_preprocessor_warning-to-suppress-this-warning">error: MSVC/cl.exe with traditional preprocessor is used. This may lead to unexpected compilation errors. Please switch to the standard conforming preprocessor by passing <code>/Zc:preprocessor</code> to cl.exe. You can define CCCL_IGNORE_MSVC_TRADITIONAL_PREPROCESSOR_WARNING to suppress this warning.</h1>
-<ul>
+<li>
+<p>编译报错</p>
+<p>报错信息：</p>
+<div class="highlight"><pre><span></span><code>#error: MSVC/cl.exe with traditional preprocessor is used. This may lead to unexpected compilation errors. Please switch to the standard conforming preprocessor by passing `/Zc:preprocessor` to cl.exe. You can define CCCL_IGNORE_MSVC_TRADITIONAL_PREPROCESSOR_WARNING to suppress this warning.
+</code></pre></div>
+</li>
 <li>
 <p>编译完成后，运行<code>demo_PARSER_OpenSim</code>报错
-</p><div class="highlight"><pre><span></span><code>由于找不到 `Irrlicht.dll`，无法继续执行代码
+    </p><div class="highlight"><pre><span></span><code>由于找不到 `Irrlicht.dll`，无法继续执行代码
 </code></pre></div>
-解决：将<code>C:\Packages\irrlicht-1.8.5\bin\Win64-VisualStudio\Irrlicht.dll</code>拷贝到<code>D:\Build\chrono\bin\Release</code>目录下，再重新运行。
+    解决：将<code>C:\Packages\irrlicht-1.8.5\bin\Win64-VisualStudio\Irrlicht.dll</code>拷贝到<code>D:\Build\chrono\bin\Release</code>目录下，再重新运行。
 </li>
 <li>
 <p>编译 Debug 版本报错：
-</p><div class="highlight"><pre><span></span><code>无法打开文件“python311_d.lib”
+    </p><div class="highlight"><pre><span></span><code>无法打开文件“python311_d.lib”
 无法打开文件“..\..\..\lib\Debug\Chrono_parsers_d.lib”
 </code></pre></div>
-</li>
-</ul>
 <p>原因：缺少<code>python311_d.lib</code>是因为使用的是python发布版，而不是debug版本。</p>
 <p>缺少<code>Chrono_parsers_d.lib</code>是因为需要编译 Chrono_parsers。</p>
 <p>C++中Debug模式下 #include <python.h> 会提示链接错误信息 无法打开文件“python311_d.lib”</python.h></p>
@@ -181,42 +181,44 @@ cmake<span class="w"> </span>../<span class="w"> </span>-DCMAKE_PREFIX_PATH<span
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Python.h&gt;</span>
 <span class="cp">#endif</span>
 </code></pre></div>
-<ul>
-<li>编译错误：</li>
-</ul>
+</li>
+<li>
+<p>编译错误：</p>
 <div class="highlight"><pre><span></span><code>无法打开包括文件: “cuda_runtime.h”: No such file or directory
 无法打开输入文件“Chrono_modal.lib”
 无法打开输入文件“..\..\..\lib\Release\Chrono_parsers.lib”
 </code></pre></div>
+</li>
+</ul>
 <p>解决：移除需要CUDA的sensor模块的编译。</p>
 <ul>
-<li>运行<code>chrono\contrib\build-scripts\windows\buildVSG.bat</code>出现Vulkan找不到的错误：</li>
-</ul>
+<li>
+<p>运行<code>chrono\contrib\build-scripts\windows\buildVSG.bat</code>出现Vulkan找不到的错误：</p>
 <div class="highlight"><pre><span></span><code>Could NOT find Vulkan: (Required is at least version "1.1.70.0")
 </code></pre></div>
 <p>解决：<a href="https://vulkan.lunarg.com/sdk/home#windows">下载 vulkan</a> ；解决不了可以暂时关闭报错的模块</p>
-<ul>
-<li>eigen3找不到，报错：<code>ERROR: cannot find Eigen3 version information</code></li>
-</ul>
+</li>
+<li>
+<p>eigen3找不到，报错：<code>ERROR: cannot find Eigen3 version information</code></p>
 <p>解决（需要包含后面的<code>include/eigen3</code>）：
 </p><div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span><span class="nv">EIGEN3_INSTALL_DIR</span><span class="o">=</span><span class="s2">"C:/Packages/eigen/include/eigen3"</span>
 </code></pre></div>
-<ul>
+</li>
 <li>
 <p>编译2.4.0时，fastrtps 中的 “ _Mtx_init”:identifier not found</p>
 </li>
 <li>
 <p>构建blaze时候报错
-</p><div class="highlight"><pre><span></span><code>Could NOT find BLAS (missing: BLAS_LIBRARIES)
+    </p><div class="highlight"><pre><span></span><code>Could NOT find BLAS (missing: BLAS_LIBRARIES)
 </code></pre></div>
-</li>
-</ul>
 <p></p><div class="highlight"><pre><span></span><code>configure_file<span class="o">(</span>&lt;input&gt;<span class="w"> </span>&lt;output&gt;
-<span class="w">               </span><span class="o">[</span>COPYONLY<span class="o">]</span><span class="w"> </span><span class="o">[</span>ESCAPE_QUOTES<span class="o">]</span><span class="w"> </span>
-<span class="w">               </span><span class="o">[</span>NEWLINE_STYLE<span class="w"> </span><span class="o">[</span>UNIX<span class="p">|</span>DOS<span class="p">|</span>WIN32<span class="p">|</span>LF<span class="p">|</span>CRLF<span class="o">]</span><span class="w"> </span><span class="o">])</span>
+<span class="w">            </span><span class="o">[</span>COPYONLY<span class="o">]</span><span class="w"> </span><span class="o">[</span>ESCAPE_QUOTES<span class="o">]</span><span class="w"> </span>
+<span class="w">            </span><span class="o">[</span>NEWLINE_STYLE<span class="w"> </span><span class="o">[</span>UNIX<span class="p">|</span>DOS<span class="p">|</span>WIN32<span class="p">|</span>LF<span class="p">|</span>CRLF<span class="o">]</span><span class="w"> </span><span class="o">])</span>
 </code></pre></div>
 将文件复制到另一个位置并修改其内容。
 <p>当然，这里的修改其内容也不是任意地修改，也是遵循一定的规则：将input文件复制到output文件，并在输入文件内容中的变量，替换引用为@VAR@或${VAR}的变量值。每个变量引用将替换为该变量的当前值，如果未定义该变量，则为空字符串。</p>
+</li>
+</ul>
 <h2 id="_2">参考</h2>
 <ul>
 <li><a href="https://api.projectchrono.org/tutorial_install_chrono.html#scripts">安装Chrono教程</a></li>
